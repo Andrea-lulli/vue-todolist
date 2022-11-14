@@ -38,14 +38,20 @@ var app = new Vue(
         {
           id: 1,
           nome: "comprare il pane",
-          
+          done: false,
+
         },
         {
           id: 2,
           nome: "comprare il latte",
+          done: false,
 
         },
+
+        
       ],
+
+      listaEseguita: [],
 
 
     },
@@ -55,10 +61,26 @@ var app = new Vue(
 
     methods: {
 
-      rimuoviElemento(index){
+      rimuoviElemento(index) {
 
-        this.lista.splice(index,1)
+        this.lista.splice(index, 1)
+      },
+
+      todoCompleto(index) {
+
+        if (this.lista[index].done == false) {
+          this.lista[index].done = true
+          this.listaEseguita.push(this.lista[index])
+          this.lista.splice(this.lista[index],1)
+          
+
+        } else {
+          this.lista[index].done = false
+        }
+
       }
+
+
 
 
 
@@ -67,6 +89,7 @@ var app = new Vue(
 
 
     mounted() {
+     
 
     }
 

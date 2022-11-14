@@ -30,7 +30,9 @@
                 <ul class="list-group list-group-flush" v-if="lista.length > 0">
                     <li v-for="( elem, index ) in lista" :key="index"
                         class="list-group-item  d-flex justify-content-between algn-items-center">
-                        <span>{{index}} | {{ elem.nome }}</span>
+                        <span @click="todoCompleto( index )"
+                            :class="(lista[index].done == true) ? 'text-decoration-line-through' : '' ">{{index}} | {{
+                            elem.nome }}</span>
                         <i class="fa-solid fa-xmark text-danger" @click="rimuoviElemento( index )"></i>
                     </li>
                 </ul>
@@ -38,8 +40,18 @@
             </div>
 
             <h2 class="my-5">Todo Completate</h2>
-
-            <div>
+            <div class="conteiner">
+                <ul class="list-group list-group-flush" v-if="lista.length > 0">
+                    <li v-for="( elem, index ) in listaEseguita" :key="index"
+                        class="list-group-item  d-flex justify-content-between algn-items-center">
+                        <span 
+                            :class="(listaEseguita[index].done == true) ? 'text-decoration-line-through' : '' ">{{index}} | {{
+                            elem.nome }}</span>
+                        <i class="fa-solid fa-xmark text-danger" @click="rimuoviElemento( index )"></i>
+                    </li>
+                </ul>
+                <h2 v-else>Non ci sono elementi nella lista completata</h2>
+            </div>
 
             </div>
 
