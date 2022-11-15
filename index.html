@@ -41,7 +41,7 @@
 
             <h2 class="my-5">Todo Completate</h2>
             <div class="conteiner">
-                <ul class="list-group list-group-flush" v-if="lista.length > 0">
+                <ul class="list-group list-group-flush" >
                     <li v-for="( elem, index ) in listaEseguita" :key="index"
                         class="list-group-item  d-flex justify-content-between algn-items-center">
                         <span 
@@ -50,7 +50,7 @@
                         <i class="fa-solid fa-xmark text-danger" @click="rimuoviElemento( index )"></i>
                     </li>
                 </ul>
-                <h2 v-else>Non ci sono elementi nella lista completata</h2>
+               
             </div>
 
             </div>
