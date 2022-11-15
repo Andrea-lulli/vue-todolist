@@ -47,12 +47,14 @@ var app = new Vue(
           done: false,
 
         },
+        
 
         
       ],
 
       listaEseguita: [],
 
+      nuoviProdotti: "" ,
 
     },
 
@@ -78,13 +80,21 @@ var app = new Vue(
           this.lista[index].done = false
         }
 
+      },
+
+      
+
+      invioDati(){
+      
+        this.lista.push(this.nuoviProdotti)
+        
       }
 
 
 
-
-
     },
+
+    
 
 
 
